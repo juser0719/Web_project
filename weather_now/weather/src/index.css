@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}/*전체에 대한 스타일*/
+
+body {
+  font-family: 'montseratt', sans-serif;
+}
+
+.app {
+  background-image: url('./asset/cold-bg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease; 
+}
+/*transition: 요소를 변환 
+  1. linear : 전환(transition) 효과가 처음부터 끝까지 일정한 속도로 진행됩니다.
+  2. ease : 기본값으로, 전환(transition) 효과가 천천히 시작되어, 그다음에는 빨라지고, 마지막에는 다시 느려집니다.
+  3. ease-in : 전환(transition) 효과가 천천히 시작됩니다.
+  4. ease-out : 전환(transition) 효과가 천천히 끝납니다.
+  5. ease-in-out : 전환(transition) 효과가 천천히 시작되어, 천천히 끝납니다.
+  6. cubic-bezier(n,n,n,n) : 전환(transition) 효과가 사용자가 정의한 cubic-bezier 함수에 따라 진행됩니다.
+*/
+.app.warm {
+  background-image: url('./asset/warm-bg.jpg');
+}
+
+.app.clouds {
+  background-image: url('./asset/cloud-bg.jpg');
+}
+
+.app.rain {
+  background-image: url('./asset/rain-bg.jpg');
+}
+
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
+  padding: 25px;
+}
+
+.search_box {
+  width: 100%;
+  margin: 0 0 75px;
+}
+
+.search_box .search_bar{
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 0 0 16px 16px;
+  margin-top: -25px;
+  box-shadow: 0 5px rgba(0,0,0,0.2);
+  color: #313131;
+  font-size: 20px;
+  
+  transition: 0.4 ease;
+}
+
+.search_box .search_bar:focus{
+  background-color: rgba(255,255,255,0.75);
+}
+/*
+focus: 요소가 선택되거나 마우스 이벤트 상태에서기본값 상태 일때
+*/
+
+.location-box .location {
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50,50,70,0.5);
+}
+
+.location-box .data {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50,50,70,0.5);
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temp {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 15px 25px;
+  color: #FFF;
+  font-size: 102px;
+  font-weight: 900;
+  text-shadow: 3px 6px rgba(50,50,70,0.5);
+  text-align: center;
+  box-shadow: 3px 6px rgba(0,0,0,0.2);
+}
+
+.weather-box .weather {
+  color: #FFF;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50,50,70,0.5);
+}
