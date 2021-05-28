@@ -1,1 +1,1 @@
-# react_portfolio
+# react_portfolio_만들고보니_안이뻐서_안씀🥲
