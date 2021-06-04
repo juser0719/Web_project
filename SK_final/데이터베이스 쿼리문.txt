@@ -1,0 +1,56 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- ORDER_PAGE Table Create SQL
+CREATE TABLE ORDER_PAGE
+(
+    `ID`             VARCHAR(45)    NOT NULL    COMMENT '아이디', 
+    `NUMBER`         INT            NOT NULL    AUTO_INCREMENT COMMENT '번호', 
+    `PRODUCT_NAME`   VARCHAR(45)    NOT NULL    COMMENT '제품이름', 
+    `PRODUCT_PRICE`  VARCHAR(45)    NOT NULL    COMMENT '제품가격', 
+    `DIVIDE`         VARCHAR(45)    NOT NULL    COMMENT '분류', 
+    PRIMARY KEY (ID)
+);
+
+ALTER TABLE ORDER_PAGE COMMENT '주문페이지';
+
+
+-- ORDER_PAGE Table Create SQL
+CREATE TABLE CART
+(
+    `ID`             VARCHAR(45)    NOT NULL    COMMENT '아이디', 
+    `PRODUCT_NAME`   VARCHAR(45)    NULL        COMMENT '제품이름', 
+    `NUMBER`         INT            NULL        COMMENT '수량', 
+    `PRODUCT_PRICE`  VARCHAR(45)    NULL        COMMENT '제품가격', 
+    PRIMARY KEY (ID)
+);
+
+ALTER TABLE CART COMMENT '장바구니';
+
+ALTER TABLE CART
+    ADD CONSTRAINT FK_CART_ID_ORDER_PAGE_ID FOREIGN KEY (ID)
+        REFERENCES ORDER_PAGE (ID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- ORDER_PAGE Table Create SQL
+CREATE TABLE Sign_Up
+(
+    `ID`           VARCHAR(45)    NOT NULL    COMMENT '아이디', 
+    `NAME`         VARCHAR(45)    NOT NULL    COMMENT '이름', 
+    `PASSWORD`     VARCHAR(45)    NOT NULL    COMMENT '비밀번호', 
+    `GENDER`       VARCHAR(45)    NOT NULL    COMMENT '성별', 
+    `EMAIL`        VARCHAR(45)    NULL        COMMENT '이메일', 
+    `PASSWORD_CK`  VARCHAR(45)    NOT NULL    COMMENT '비밀번호 확인', 
+    `PHONE1`       INT            NULL        COMMENT '전화번호1', 
+    `PHONE2`       INT            NULL        COMMENT '전화번호2', 
+    `PHONE3`       INT            NULL        COMMENT '전화번호3', 
+    `ADDRESS`      VARCHAR(45)    NULL        COMMENT '주소', 
+    PRIMARY KEY (ID)
+);
+
+ALTER TABLE Sign_Up COMMENT '로그인';
+
+ALTER TABLE Sign_Up
+    ADD CONSTRAINT FK_Sign_Up_ID_CART_ID FOREIGN KEY (ID)
+        REFERENCES CART (ID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+

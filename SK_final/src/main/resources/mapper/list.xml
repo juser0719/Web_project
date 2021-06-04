@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="list">
+	<select id="list" resultType="Map" parameterType="Map" timeout="10">
+		select 
+            *
+		from list
+	</select>
+
+	<select id="read" resultType="Map" parameterType="Map">
+		select 
+                *
+		from list
+	</select>
+	<insert id="update" parameterType="Map">
+	    update list 
+		set ITEM = #{ITEM} 			
+			, NUM = #{NUM} 			
+			, PRICE = #{PRICE}			
+			, ORDERED = #{ORDERED} 			
+	</insert>
+
+	<insert id="insert" parameterType="Map">
+	    INSERT INTO list 
+		
+		values(
+			#{ITEM}			    <!-- 상품명 -->
+			, #{NUM}			<!-- 수량 -->
+			, #{PRICE}			<!-- 총가격 -->
+			, #{ORDERED} 		<!-- 배송현황 -->
+
+        )
+	</insert>
+
+	<delete id="delete" parameterType="Map">
+		delete from list
+		
+	</delete>
+</mapper>
